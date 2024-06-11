@@ -1,4 +1,9 @@
+require('dotenv').config();
+
+
 const express = require('express');
+
+
 const stripe = require("stripe")('sk_test_51P1AQISJP765TakG7u8hBMzd6ualVTWXmXwq3v8ysEWG7Kxpxtl8N5Mo0cOYW3CZjJW1uwPuMLW9CPyMAri3CIYk00MozvBe5T');
 // const createProduct =require('./controller/Product')
 const {Product,Orders}=require('./mongo');
@@ -10,7 +15,7 @@ const adminrouter=require('./routes/admin')
 const fetchAllProducts=require('./Schemamiidleware/productschema')
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT;
 
 app.use(express.static("public"));
 app.use(express.json());
